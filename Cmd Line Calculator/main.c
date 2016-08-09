@@ -12,19 +12,19 @@ int main(int argc, const char * argv[]) {
     
     printf("DAN'S COMMAND LINE CALCULATOR\n\n");
            
-    printf("Which operation would you like to perform? Type 1 for addition, type 2 for subtraction, or type 3 for multiplication: \n\n");
+    printf("Which operation would you like to perform? Type 1 for addition, type 2 for subtraction, type 3 for multiplication, or type 4 for division: \n\n");
     // this prompts user to select operation
     
     int a = -1;
     int error = -1;
     
-    while (a < 0 || a >= 4) {
+    while (a < 0 || a >= 5) {
         fpurge(stdin);
         error = scanf("%d", &a);
-        if (error != 1 || a < 0 || a >= 4 ) {
-            printf("please enter 1, 2, or 3: \n\n");
+        if (error != 1 || a < 0 || a >= 5 ) {
+            printf("please enter 1, 2, 3, or 4: \n\n");
             a = -1;
-    // this prompts the user to enter 1, 2, or 3 if the user enters an invalid selection
+    // this prompts the user to enter 1, 2, 3, or 4 if the user enters an invalid selection
         }
     
         printf("\nWhat is the first number of your operation? \n\n");
@@ -53,6 +53,14 @@ int main(int argc, const char * argv[]) {
             double result = firstNumber * secondNumber;
             printf("\nThe product is %lf\n\n", result);
         }
+            if (a == 4) {
+                if (secondNumber == 0) {
+                    printf("\nI'm sorry, but you cannot divide by zero!\n\n");}
+                else
+                {
+                double result = firstNumber / secondNumber;
+                    printf("\nThe quotient is %lf\n\n", result);}
+            }
         }
             printf("Would you like DAN'S COMMAND LINE CALCULATOR to perform another calculation?(1=Y/2=N)\n\n");
         int anotherCalc = -1;
@@ -68,19 +76,18 @@ int main(int argc, const char * argv[]) {
         
                 while (anotherCalc == 1) {{
                     
-                        printf("\nWhich operation would you like to perform? Type 1 for addition, type 2 for subtraction, or type 3 for multiplication: \n\n");
+                        printf("\nWhich operation would you like to perform? Type 1 for addition, type 2 for subtraction, type 3 for multiplication, or type 4 for division: \n\n");
                         // this prompts user to select operation
                         
                         int a = -1;
                         int error = -1;
                         
-                        while (a < 0 || a >= 4) {
+                        while (a < 0 || a >= 5) {
                             fpurge(stdin);
                             error = scanf("%d", &a);
-                            if (error != 1 || a < 0 || a >= 4 ) {
-                                printf("please enter 1, 2, or 3: \n\n");
+                            if (error != 1 || a < 0 || a >= 5 ) {
+                                printf("please enter 1, 2, 3, or 4: \n\n");
                                 a = -1;
-                                // this prompts the user to enter 1, 2, or 3 if the user enters an invalid selection
                             }
                             
                             printf("\nWhat is the first number of your operation? \n\n");
@@ -109,11 +116,20 @@ int main(int argc, const char * argv[]) {
                                     double result = firstNumber * secondNumber;
                                     printf("\nThe product is %lf\n\n", result);
                                 }
+                                
+                                if (a == 4) {
+                                    if (secondNumber == 0) {
+                                        printf("\nI'm sorry, but you cannot divide by zero!\n\n");}
+                                else
+                                {
+                                    double result = firstNumber / secondNumber;
+                                    printf("\nThe quotient is %lf\n\n", result);}
+                                }
                             }
                             printf("Would you like DAN'S COMMAND LINE CALCULATOR to perform another calculation?(1=Y/2=N)\n\n");
                             scanf("%df", &anotherCalc);}
                                                 }}}}
-                
-                    
+    printf("\nGoodbye!\n\n");
+    
         return 0;}
 
